@@ -1,0 +1,130 @@
+---
+description: Development tooling configuration prompts - reference when needed
+alwaysApply: false
+globs: []
+---
+
+# Tooling Prompts
+
+Reference these prompts using: `@prompt-library/workspace-config/tooling prompt-name`
+
+## Configure ESLint
+
+**Use when:** Setting up or updating ESLint configuration
+
+```
+Configure ESLint following workspace standards:
+1. Use Next.js ESLint config as base
+2. Add workspace-standard rules (consistent with existing apps)
+3. Configure for TypeScript and React
+4. Set up proper ignore patterns (.next, node_modules, etc.)
+5. Ensure compatibility with Prettier (no conflicting rules)
+6. Add workspace-specific custom rules if needed
+7. Configure for Next.js specific patterns
+8. Match patterns from existing apps (Feedric/.eslintrc.json)
+9. Verify linting works correctly with workspace code patterns
+10. Test linting on sample files
+
+Ensure ESLint and Prettier work together without conflicts.
+```
+
+## Configure Prettier
+
+**Use when:** Setting up or updating Prettier configuration
+
+```
+Configure Prettier following workspace standards:
+1. Set up .prettierrc with workspace-standard formatting rules
+2. Configure print width, tab width, and other formatting options
+3. Set up .prettierignore to exclude build artifacts and dependencies
+4. Ensure compatibility with ESLint (use eslint-config-prettier)
+5. Match formatting rules from existing apps
+6. Configure editor integration (format on save)
+7. Verify Prettier works correctly with workspace code
+8. Test formatting on sample files
+9. Document Prettier configuration in README
+10. Ensure consistent formatting across workspace
+
+Reference existing apps (.prettierrc files) for standard formatting rules.
+```
+
+## Configure Testing
+
+**Use when:** Setting up Vitest or Jest with workspace patterns
+
+```
+Configure testing framework following workspace standards:
+1. Set up Vitest configuration (vitest.config.ts) or Jest (jest.config.js)
+2. Configure test file patterns (*.test.ts, *.spec.ts)
+3. Set up test environment (jsdom for React components, node for API tests)
+4. Configure coverage reporting
+5. Set up test utilities and helpers
+6. Configure path aliases for tests (@/*, etc.)
+7. Add test scripts to package.json (test, test:run, test:watch)
+8. Match patterns from existing apps (Feedric/vitest.config.ts)
+9. Verify tests can import workspace modules correctly
+10. Create example test file to verify setup
+
+Use Vitest for new projects (preferred). Jest is acceptable for existing projects.
+```
+
+## Configure Git Hooks
+
+**Use when:** Setting up Husky and git hooks
+
+```
+Set up Husky and git hooks following workspace standards:
+1. Install Husky as a dev dependency
+2. Initialize Husky (npx husky install)
+3. Set up pre-commit hook (run lint-staged or lint before commit)
+4. Set up pre-push hook (run tests before push, optional)
+5. Configure lint-staged if using (format and lint staged files)
+6. Add prepare script to package.json (husky install)
+7. Verify git hooks work correctly
+8. Test hooks with sample commits
+9. Document git hooks setup in README
+10. Ensure hooks don't slow down development workflow
+
+Reference existing apps for git hooks patterns.
+```
+
+## Setup CI/CD
+
+**Use when:** Configuring CI/CD workflows
+
+```
+Configure CI/CD workflows following workspace standards:
+1. Set up GitHub Actions workflows (or other CI/CD platform)
+2. Configure build and test jobs
+3. Set up deployment workflows (staging, production)
+4. Configure environment variables in CI/CD platform
+5. Set up branch protection rules
+6. Configure automated testing on pull requests
+7. Set up deployment verification steps
+8. Configure rollback procedures
+9. Document CI/CD setup in README
+10. Verify CI/CD workflows work correctly
+
+Reference existing CI/CD configurations in workspace for patterns.
+Ensure CI/CD matches local development environment as closely as possible.
+```
+
+## Configure Editor
+
+**Use when:** Setting up editor config files
+
+```
+Set up editor configuration files following workspace standards:
+1. Create .editorconfig with workspace-standard settings (indent, line endings, etc.)
+2. Configure VS Code settings (.vscode/settings.json) if applicable
+3. Set up recommended VS Code extensions (.vscode/extensions.json)
+4. Configure format on save settings
+5. Set up TypeScript settings for editor
+6. Configure ESLint and Prettier integration in editor
+7. Match editor settings from existing workspace configurations
+8. Document editor setup in README
+9. Verify editor settings work correctly
+10. Ensure consistent editor experience across team
+
+Reference existing .editorconfig and .vscode/ settings in workspace.
+```

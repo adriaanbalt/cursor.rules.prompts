@@ -1,0 +1,93 @@
+---
+description: Project setup and scaffolding prompts - reference when needed
+alwaysApply: false
+globs: []
+---
+
+# Project Setup Prompts
+
+Reference these prompts using: `@prompt-library/workspace-config/project-setup prompt-name`
+
+## Setup Next.js App
+
+**Use when:** Creating a new Next.js application in the workspace
+
+```
+Create a new Next.js application following workspace standards:
+1. Initialize package.json with workspace-standard scripts (dev, dev:https, build, lint, test)
+2. Configure TypeScript (tsconfig.json) with path aliases (@/*, @/lib/*, etc.)
+3. Set up Next.js config (next.config.ts) with security headers and optimizations
+4. Configure Tailwind CSS with design system tokens (CSS variables)
+5. Set up ESLint and Prettier configurations
+6. Create .env.example with required environment variables
+7. Set up basic folder structure (app/, lib/, components/, etc.)
+8. Configure Vitest for testing
+9. Add HTTPS support for local development
+10. Verify all configurations match workspace standards
+
+Reference existing apps (Feedric, Markense) for patterns and ensure consistency.
+```
+
+## Setup TypeScript Project
+
+**Use when:** Initializing a new TypeScript project (non-Next.js)
+
+```
+Initialize a TypeScript project following workspace standards:
+1. Create package.json with TypeScript as a dependency
+2. Configure tsconfig.json with strict mode and modern ES targets
+3. Set up path aliases if applicable (@/*, @/lib/*, etc.)
+4. Configure build scripts (build, dev, type-check)
+5. Set up ESLint and Prettier for TypeScript
+6. Create .gitignore with TypeScript-specific patterns
+7. Set up testing framework (Vitest or Jest)
+8. Create basic folder structure following workspace patterns
+9. Add README with setup instructions
+10. Verify TypeScript compilation works correctly
+
+Reference existing TypeScript projects in workspace for patterns.
+```
+
+## Bootstrap Project
+
+**Use when:** Full project bootstrap with all standard configurations
+
+```
+Bootstrap a complete project following workspace standards:
+1. Initialize package.json with all standard scripts and dependencies
+2. Configure TypeScript (tsconfig.json) with workspace path aliases
+3. Set up Next.js config (next.config.ts) with security and optimizations
+4. Configure Tailwind CSS with design system tokens (CSS variables)
+5. Set up PostCSS configuration
+6. Configure ESLint and Prettier
+7. Set up Vitest for testing
+8. Create .env.example with all required environment variables
+9. Set up HTTPS for local development (dev:https script)
+10. Configure Supabase for local development (if needed)
+11. Create folder structure (app/, lib/, components/, infrastructure/, etc.)
+12. Set up git hooks (Husky) if applicable
+13. Create README with setup and development instructions
+14. Verify all configurations match workspace standards
+
+Reference existing apps (Feedric, Markense) for complete patterns.
+```
+
+## Verify Project Structure
+
+**Use when:** Verifying an existing project follows workspace standards
+
+```
+Verify the project follows workspace standards:
+1. Check package.json has standard scripts (dev, dev:https, build, lint, test)
+2. Verify tsconfig.json has correct path aliases and settings
+3. Check next.config.ts has security headers and optimizations
+4. Verify Tailwind config uses design system tokens (CSS variables)
+5. Check ESLint and Prettier configurations match workspace standards
+6. Verify .env.example includes all required environment variables
+7. Check folder structure matches workspace patterns
+8. Verify HTTPS setup for local development
+9. Check testing framework is configured correctly
+10. Verify README has proper setup instructions
+
+Report any deviations from workspace standards and suggest fixes.
+```

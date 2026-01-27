@@ -1,0 +1,110 @@
+---
+description: Dependency management prompts - reference when needed
+alwaysApply: false
+globs: []
+---
+
+# Dependency Management Prompts
+
+Reference these prompts using: `@prompt-library/workspace-config/dependencies prompt-name`
+
+## Add Dependency
+
+**Use when:** Adding a new dependency to a project
+
+```
+Add the specified dependency following workspace standards:
+1. Check existing versions in other workspace apps (Feedric, Markense, etc.)
+2. Align version with workspace standards (use same version if already present)
+3. Add to appropriate section (dependencies vs devDependencies)
+4. Update package-lock.json
+5. Verify compatibility with existing dependencies
+6. Check for security vulnerabilities (npm audit)
+7. Update .env.example if dependency requires environment variables
+8. Document usage in README if it's a major dependency
+9. Verify the dependency works correctly after installation
+10. Check if dependency needs configuration files (e.g., Tailwind plugins need config)
+
+Ensure version consistency across workspace apps when possible.
+```
+
+## Update Dependencies
+
+**Use when:** Updating dependencies to latest compatible versions
+
+```
+Update dependencies following workspace standards:
+1. Check current versions in package.json
+2. Identify dependencies that can be updated (check for breaking changes)
+3. Update dependencies incrementally (major updates separately from minor/patch)
+4. Check compatibility between updated dependencies
+5. Run tests to verify nothing broke
+6. Check for security vulnerabilities after updates
+7. Update package-lock.json
+8. Document any breaking changes or migration steps
+9. Verify build still works correctly
+10. Check if other workspace apps need the same updates
+
+Prioritize security updates and patch versions. Test thoroughly after major updates.
+```
+
+## Audit Dependencies
+
+**Use when:** Auditing dependencies for security issues
+
+```
+Audit dependencies for security issues:
+1. Run npm audit to check for vulnerabilities
+2. Identify high and critical severity issues
+3. Check if updates are available for vulnerable packages
+4. Review dependency tree for transitive vulnerabilities
+5. Update vulnerable packages if safe updates are available
+6. Document any vulnerabilities that can't be immediately fixed
+7. Check if vulnerabilities affect production code or only dev dependencies
+8. Verify fixes don't break existing functionality
+9. Update package-lock.json after fixes
+10. Document audit results and actions taken
+
+Prioritize critical and high severity vulnerabilities. Test after applying fixes.
+```
+
+## Align Versions
+
+**Use when:** Aligning dependency versions across workspace apps
+
+```
+Align dependency versions across workspace apps:
+1. Identify common dependencies across apps (Feedric, Markense, etc.)
+2. Check current versions in each app's package.json
+3. Determine target version (usually latest compatible or most common)
+4. Update all apps to use the same version
+5. Verify compatibility with each app's specific requirements
+6. Test each app after version alignment
+7. Update package-lock.json files
+8. Document version alignment decisions
+9. Check for any app-specific configuration needed
+10. Verify builds work correctly in all apps
+
+Prioritize aligning critical dependencies (React, Next.js, TypeScript, etc.).
+Be careful with major version updates - test thoroughly.
+```
+
+## Setup Package Scripts
+
+**Use when:** Configuring package.json scripts following workspace patterns
+
+```
+Configure package.json scripts following workspace patterns:
+1. Add standard dev scripts (dev, dev:https)
+2. Add build scripts (build, build:production, build:vercel)
+3. Add linting and testing scripts (lint, test, test:run)
+4. Add Supabase scripts (supabase:start, supabase:https-proxy, supabase:migrate)
+5. Add service proxy scripts (text-extractor:https-proxy, worker:https-proxy)
+6. Add verification scripts (verify:local, verify:full)
+7. Add deployment scripts if applicable
+8. Add cleanup and utility scripts as needed
+9. Ensure script names match workspace conventions
+10. Document scripts in README
+
+Reference existing apps (Feedric/package.json) for standard script patterns.
+```

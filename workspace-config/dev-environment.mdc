@@ -1,0 +1,111 @@
+---
+description: Development environment setup prompts - reference when needed
+alwaysApply: false
+globs: []
+---
+
+# Development Environment Prompts
+
+Reference these prompts using: `@prompt-library/workspace-config/dev-environment prompt-name`
+
+## Setup HTTPS Local Development
+
+**Use when:** Configuring HTTPS for local development
+
+```
+Set up HTTPS for local development following workspace standards:
+1. Configure Next.js dev server for HTTPS (localhost:3000)
+2. Set up Supabase HTTPS proxy (port 54421)
+3. Configure service HTTPS proxies (Text Extractor: 8000, Worker: 8080)
+4. Update environment variables to use HTTPS URLs (NEXT_PUBLIC_SUPABASE_URL=https://127.0.0.1:54421)
+5. Configure OAuth redirect URIs for HTTPS (https://localhost:3000/api/*/oauth/callback)
+6. Set up SSL certificate handling for localhost
+7. Create/update dev scripts (dev:https, supabase:https-proxy, etc.)
+8. Update WebSocket URLs to use wss:// (secure WebSocket)
+9. Verify all services can communicate via HTTPS
+10. Document HTTPS setup in README or setup docs
+
+Reference .cursor/rules/https-configuration.mdc for detailed requirements.
+Never use HTTP-only development as it breaks OAuth integrations.
+```
+
+## Setup Supabase Local
+
+**Use when:** Configuring Supabase for local development
+
+```
+Set up Supabase for local development following workspace standards:
+1. Configure Supabase config.toml with correct ports (API: 54321, DB: 54322, Studio: 54323)
+2. Set up HTTPS proxy for Supabase (port 54421)
+3. Configure OAuth redirect_uri in config.toml (https://127.0.0.1:54421/auth/v1/callback)
+4. Add additional_redirect_urls for app OAuth callbacks
+5. Set up environment variables (NEXT_PUBLIC_SUPABASE_URL=https://127.0.0.1:54421)
+6. Create/update scripts for Supabase (supabase:start, supabase:https-proxy, supabase:migrate)
+7. Configure SSL verification bypass for localhost (if needed)
+8. Verify Supabase API is accessible via HTTPS
+9. Test OAuth flows work correctly
+10. Document Supabase setup in README
+
+Reference .cursor/rules/https-configuration.mdc for HTTPS requirements.
+```
+
+## Setup Service Proxies
+
+**Use when:** Setting up HTTPS proxies for backend services
+
+```
+Set up HTTPS proxies for backend services following workspace standards:
+1. Create HTTPS proxy for Text Extractor service (port 8000, backend on 8001)
+2. Create HTTPS proxy for Background Worker service (port 8080, backend on 8081)
+3. Configure proxy scripts in package.json (text-extractor:https-proxy, worker:https-proxy)
+4. Update environment variables to use HTTPS URLs for services
+5. Configure SSL certificate handling for localhost
+6. Set up auto-restart with safeguards (exponential backoff, max retries)
+7. Add port cleanup before restart (kill processes on required ports)
+8. Verify all services can communicate via HTTPS
+9. Test service health endpoints via HTTPS
+10. Document proxy setup in README
+
+Reference existing proxy implementations in infrastructure/server/ for patterns.
+```
+
+## Verify Dev Environment
+
+**Use when:** Verifying all dev services are configured correctly
+
+```
+Verify the development environment is configured correctly:
+1. Check all required services are running (Next.js, Supabase, proxies)
+2. Verify HTTPS is working for all services (Next.js, Supabase, backend services)
+3. Test OAuth redirect URIs match across all three places (env vars, provider settings, Supabase config)
+4. Verify WebSocket URLs use wss:// (secure WebSocket)
+5. Check environment variables are set correctly (HTTPS URLs)
+6. Test service communication (Next.js → Supabase, Next.js → backend services)
+7. Verify SSL certificates are working (no certificate errors)
+8. Check all dev scripts work correctly (dev:https, supabase:https-proxy, etc.)
+9. Test OAuth flows end-to-end
+10. Verify no port conflicts
+
+Report any issues and suggest fixes.
+```
+
+## Troubleshoot Dev Setup
+
+**Use when:** Debugging common dev environment issues
+
+```
+Troubleshoot the development environment setup:
+1. Check if required ports are free (3000, 54321, 54421, 8000, 8080)
+2. Verify HTTPS proxies are running (check processes, check logs)
+3. Check environment variables are set correctly (HTTPS URLs, not HTTP)
+4. Verify OAuth redirect URIs match exactly across all three places
+5. Check SSL certificate issues (localhost certificate errors)
+6. Verify WebSocket URLs use wss:// not ws://
+7. Check service health endpoints (curl -k https://127.0.0.1:54421/auth/v1/health)
+8. Review proxy logs for errors
+9. Check for port conflicts (lsof -ti:PORT)
+10. Verify Supabase is running and accessible
+
+Reference .cursor/rules/https-configuration.mdc for common issues and fixes.
+Provide specific solutions based on the error messages or symptoms.
+```

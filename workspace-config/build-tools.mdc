@@ -1,0 +1,95 @@
+---
+description: Build tools configuration prompts - reference when needed
+alwaysApply: false
+globs: []
+---
+
+# Build Tools Prompts
+
+Reference these prompts using: `@prompt-library/workspace-config/build-tools prompt-name`
+
+## Configure TypeScript
+
+**Use when:** Setting up or updating TypeScript configuration
+
+```
+Configure tsconfig.json following workspace standards:
+1. Use strict mode and modern ES targets (ES2017+)
+2. Set up path aliases: @/*, @/lib/*, @/components/*, @/config/*, @/integrations/*, @/services/*, @/infrastructure/*
+3. Configure module resolution (bundler for Next.js)
+4. Include proper typeRoots (node_modules/@types, lib/types)
+5. Exclude: node_modules, supabase, infrastructure/supabase, .next
+6. Enable incremental compilation
+7. Set jsx to "preserve" for Next.js
+8. Enable esModuleInterop and resolveJsonModule
+9. Match patterns from existing apps (Feedric/tsconfig.json)
+
+Ensure compatibility with Next.js and workspace build tools.
+```
+
+## Configure Next.js
+
+**Use when:** Setting up or updating Next.js configuration
+
+```
+Configure next.config.ts following workspace standards:
+1. Enable compression and disable poweredByHeader
+2. Configure image optimization (formats, deviceSizes, imageSizes)
+3. Add security headers (X-Frame-Options, X-Content-Type-Options, etc.)
+4. Configure experimental features for performance (optimizePackageImports)
+5. Set up proper redirects and rewrites if needed
+6. Configure environment variable handling
+7. Add performance optimizations
+8. Match patterns from existing apps (Feedric/next.config.ts, Markense/next.config.ts)
+
+Ensure all security headers and optimizations are included.
+```
+
+## Configure Tailwind
+
+**Use when:** Setting up or updating Tailwind CSS configuration
+
+```
+Configure Tailwind CSS following workspace standards:
+1. Use design system tokens (CSS variables) for all colors
+2. Reference CSS variables in tailwind.config.ts (var(--color-primary), etc.)
+3. Configure content paths (app/, components/, lib/ui/, etc.)
+4. Set up dark mode (media or class)
+5. Extend theme with semantic color tokens (primary, danger, neutral, text, surface, accent, success, warning, info)
+6. Ensure all colors reference CSS variables from globals.css
+7. Match patterns from existing apps (Feedric/tailwind.config.ts)
+
+Reference .cursor/rules/design-system-tokens.mdc for token standards.
+Never use hardcoded Tailwind colors (bg-slate-*, text-gray-*, etc.).
+```
+
+## Configure PostCSS
+
+**Use when:** Setting up or updating PostCSS configuration
+
+```
+Configure PostCSS following workspace standards:
+1. Include Tailwind CSS plugin
+2. Include Autoprefixer plugin
+3. Set up proper plugin order (Tailwind, then Autoprefixer)
+4. Match patterns from existing apps (Feedric/postcss.config.js)
+
+Ensure PostCSS works correctly with Tailwind CSS.
+```
+
+## Update Build Config
+
+**Use when:** Updating existing build configurations to match workspace standards
+
+```
+Update existing build configurations to match workspace standards:
+1. Review current TypeScript config and update to workspace standards
+2. Review Next.js config and add missing security headers/optimizations
+3. Review Tailwind config and migrate to design system tokens (CSS variables)
+4. Update PostCSS config if needed
+5. Verify all configurations match patterns from existing apps
+6. Test that build still works correctly after updates
+7. Document any breaking changes or migration notes
+
+Reference existing apps (Feedric, Markense) for correct patterns.
+```
