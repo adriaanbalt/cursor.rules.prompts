@@ -1,7 +1,7 @@
 ---
 description: Standards for creating guide markdown files in docs/guides/ with proper frontmatter, date handling, and template structure. CHECK THIS RULE BEFORE CREATING ANY GUIDE MARKDOWN FILE.
 globs: "docs/guides/**/*.md"
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Guide Markdown File Creation Standards

@@ -1,0 +1,27 @@
+---
+description: Output quality standards for code changes and explanations. Ensures completeness, self-review, and production-ready output.
+alwaysApply: true
+---
+
+# Output Quality Standards
+
+## Code Changes
+
+- Every change must be complete and functional. No TODOs, no placeholder implementations, no "you'll need to add X here" comments.
+- Include all necessary imports, type updates, and downstream changes.
+- If a change requires modifications to multiple files, identify all affected files upfront before starting.
+
+## Explanations
+
+- Lead with the conclusion or recommendation, then provide supporting reasoning.
+- When presenting tradeoffs, use concrete criteria (performance cost, maintenance burden, risk of regression) not vague qualifiers.
+- Quantify when possible. "This adds O(n) overhead per request" is better than "this might be slower."
+
+## Self-Review
+
+Before presenting final output:
+
+- Verify code compiles (imports exist, types align, functions are called correctly).
+- Check for edge cases: null/undefined, empty arrays, concurrent access, error paths.
+- Confirm consistency with the patterns established in existing code.
+- If you changed a function signature, verify all call sites are updated.

@@ -1,7 +1,6 @@
 ---
-description: Standards and best practices for folder restructuring and file moves. Prevents code loss during refactoring by ensuring proper git operations, verification steps, and file integrity checks.
-globs: "**/*"
-alwaysApply: true
+description: Standards and best practices for folder restructuring and file moves. Prevents code loss during refactoring by ensuring proper git operations, verification steps, and file integrity checks. Reference this rule when moving files or restructuring folders.
+alwaysApply: false
 ---
 
 # Folder Restructuring Standards

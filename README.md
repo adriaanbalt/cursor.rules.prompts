@@ -18,72 +18,62 @@ This repo covers the stuff that actually matters when building apps:
 
 ### Always Applied Rules
 
-These rules are always active regardless of file context:
+These rules are always active regardless of file context. They are intentionally concise to minimize context window usage and maximize reasoning quality.
 
-1. **design-system-tokens.mdc** - Design system token standards
-   - Enforces use of CSS variables and semantic tokens
-   - Prevents hardcoded colors
-   - Supports theme switching
+1. **objective-reasoning.mdc** - Reasoning methodology and intellectual rigor
+   - Problem decomposition and multi-step reasoning
+   - Evidence-based evaluation with tradeoff analysis
+   - First principles thinking with cold accuracy
+   - Self-verification before presenting output
 
-2. **balanced-evaluation.mdc** - Balanced evaluation standards
-   - Requires evidence-based evaluations
-   - Focuses on advantages, disadvantages, and feasibility
-   - Avoids pandering or reassurance
+2. **conform-to-existing-structures.mdc** - Conform to existing codebase patterns
+   - Read existing code before writing new code
+   - Match naming, structure, and export conventions
+   - Reuse existing abstractions over creating duplicates
+   - Preserve data contracts (schemas, API shapes, types)
 
-3. **conform-to-existing-structures.mdc** - Conform to existing data structures
-   - Ensures new code conforms to existing app data structures
+3. **verify-before-acting.mdc** - Verify understanding before making changes
+   - Read target files and related dependencies before editing
+   - State plan before executing
+   - Identify root cause with evidence before fixing bugs
+   - Check for existing implementations before creating new ones
 
-4. **folder-restructuring.mdc** - Folder restructuring standards
-   - Prevents code loss during refactoring
-   - Mandates git-based moves
-   - Requires verification steps
+4. **output-quality.mdc** - Output completeness and self-review standards
+   - Complete, functional changes with no TODOs or placeholders
+   - Self-review for correctness, edge cases, and pattern consistency
+   - Lead with conclusions, quantify tradeoffs
 
-5. **guides-markdown.mdc** - Guide markdown creation standards
-   - Template structure for guide files
-   - Date handling requirements
-   - Frontmatter standards
-
-6. **https-configuration.mdc** - HTTPS configuration
-   - Local development HTTPS setup
-   - Supabase HTTPS proxy configuration
-   - WebSocket and OAuth redirect URI requirements
-
-7. **objective-reasoning.mdc** - Hyper-objective logic engine
-   - First principles reasoning
-   - Maximum intellectual rigor
-   - Evidence-based decision making
-
-8. **cleanup-test-files.mdc** - Test file cleanup
+5. **cleanup-test-files.mdc** - Test file cleanup
    - Delete test files after use
 
 ### Context-Specific Rules
 
-These rules activate when working with matching file patterns:
+These rules activate when working with matching file patterns. Previously always-applied verbose rules have been moved here to reduce context window usage on non-matching requests.
 
 #### API & Backend
 
-10. **api-routes.mdc** - Next.js API route standards
+6. **api-routes.mdc** - Next.js API route standards
     - Route handler structure
     - Authentication and authorization
     - Error handling and logging
     - Input validation
     - Webhook signature verification
 
-11. **database-queries.mdc** - Supabase database query standards
+7. **database-queries.mdc** - Supabase database query standards
     - Client selection (user vs admin)
     - Query patterns and optimization
     - Error handling
     - RLS (Row Level Security) policies
     - UUID validation
 
-12. **security.mdc** - Security standards
+8. **security.mdc** - Security standards
     - Authentication and authorization
     - Input validation and sanitization
     - Webhook signature verification
     - Environment variable security
     - Data protection
 
-13. **supabase-migrations.mdc** - Supabase migration standards
+9. **supabase-migrations.mdc** - Supabase migration standards
     - When migrations are needed
     - Migration workflow and validation
     - Detecting database resets
@@ -92,27 +82,26 @@ These rules activate when working with matching file patterns:
 
 #### Frontend
 
-14. **dry-components.mdc** - DRY component principles
-    - When to extract components
-    - Code duplication thresholds
-    - Component extraction guidelines
-    - Location guidelines
+10. **design-system-tokens.mdc** - Design system token standards *(now context-specific: `*.tsx, *.css, tailwind.config*`)*
+    - Enforces use of CSS variables and semantic tokens
+    - Prevents hardcoded colors
+    - Supports theme switching
 
-15. **hooks.mdc** - Custom React hooks standards
+11. **hooks.mdc** - Custom React hooks standards
     - Hook naming conventions
     - Hook structure and patterns
     - Data fetching patterns
     - Error handling
     - Dependency management
 
-16. **typescript-types.mdc** - TypeScript type standards
+12. **typescript-types.mdc** - TypeScript type standards
     - Type organization
     - Interface vs type usage
     - Type safety patterns
     - Type guards
     - Utility types
 
-17. **kanban-drag-system.mdc** - Kanban board drag system
+13. **kanban-drag-system.mdc** - Kanban board drag system
     - Board drag-to-scroll implementation
     - Card dragging coexistence
     - Touch support
@@ -120,13 +109,18 @@ These rules activate when working with matching file patterns:
 
 #### Infrastructure & Configuration
 
-18. **environment-variables.mdc** - Environment variable standards
+14. **https-configuration.mdc** - HTTPS configuration *(now context-specific: `.env*, config.toml, docker-compose*, scripts/`)*
+    - Local development HTTPS setup
+    - Supabase HTTPS proxy configuration
+    - WebSocket and OAuth redirect URI requirements
+
+15. **environment-variables.mdc** - Environment variable standards
     - Naming conventions (NEXT_PUBLIC_ prefix)
     - Variable organization
     - Validation patterns
     - Documentation requirements
 
-19. **oauth-strategy.mdc** - OAuth flow strategy
+16. **oauth-strategy.mdc** - OAuth flow strategy
     - Complete OAuth flow implementation
     - HTTPS requirements
     - Configuration points
@@ -134,20 +128,25 @@ These rules activate when working with matching file patterns:
 
 #### Development Practices
 
-20. **error-handling.mdc** - Error handling standards
+17. **surgical-fixes.mdc** - Surgical fix methodology
+    - Diagnose first, fix second
+    - Minimal targeted changes
+    - Three-phase approach: diagnose, fix, verify
+
+18. **error-handling.mdc** - Error handling standards
     - API route errors
     - Client-side errors
     - Database errors
     - Network errors
     - User-facing error messages
 
-21. **logging-monitoring.mdc** - Logging and monitoring standards
+19. **logging-monitoring.mdc** - Logging and monitoring standards
     - Structured logging
     - Log levels
     - Performance monitoring
     - Error tracking
 
-22. **testing.mdc** - Testing standards
+20. **testing.mdc** - Testing standards
     - Test structure and organization
     - Test patterns (API, hooks, components)
     - Mocking strategies
@@ -155,11 +154,30 @@ These rules activate when working with matching file patterns:
 
 #### Documentation
 
+21. **markdown-creation.mdc** - Markdown file creation standards *(now context-specific: `*.md`)*
+    - Template structure with date/time handling
+    - GitHub username integration
+    - Auto-update dates on modification
+
+22. **guides-markdown.mdc** - Guide markdown creation standards *(now context-specific: `docs/guides/*.md`)*
+    - YAML frontmatter requirements
+    - Date handling for guide files
+    - Category and tag standards
+
 23. **rules-system-overview.mdc** - Rules system overview
     - How Cursor reads rules
     - Rule file structure
     - Rule categories
     - Best practices
+
+#### Agent-Requestable Rules
+
+These rules are not automatically applied but can be referenced when needed:
+
+24. **folder-restructuring.mdc** - Folder restructuring standards *(agent-requestable)*
+    - Prevents code loss during refactoring
+    - Mandates git-based moves
+    - Requires verification steps
 
 ## Usage
 

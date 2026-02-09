@@ -1,7 +1,7 @@
 ---
 description: HTTPS configuration for local development. Covers Supabase HTTPS proxy, WebSocket URLs, and OAuth redirect URIs.
-globs: "**/*.{ts,tsx,js,json,toml},**/supabase/config.toml"
-alwaysApply: true
+globs: "**/.env*,**/config.toml,**/docker-compose*,**/scripts/**/*.sh,**/supabase/**"
+alwaysApply: false
 ---
 
 # HTTPS Configuration Rules

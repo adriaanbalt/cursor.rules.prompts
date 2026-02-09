@@ -1,6 +1,7 @@
 ---
 description: Design system token standards. Enforces use of CSS variables and semantic tokens instead of hardcoded colors. Ensures easy design system swapping and consistent styling.
-alwaysApply: true
+globs: "**/*.tsx,**/*.jsx,**/*.css,**/tailwind.config*,**/globals.css"
+alwaysApply: false
 ---
 
 # Design System Token Standards

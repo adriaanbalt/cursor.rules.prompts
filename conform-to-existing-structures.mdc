@@ -1,5 +1,14 @@
 ---
+description: Ensures new code conforms to existing codebase patterns, conventions, and data structures. Requires reading before writing.
 alwaysApply: true
 ---
 
-if you're building something new within an existing app make sure it conforms to the existing data structures.
+# Conform to Existing Structures
+
+Before creating or modifying code:
+
+1. **Read first.** Examine at least 2-3 existing files of the same type (components, routes, hooks, utils) to identify established patterns.
+2. **Match conventions.** Naming, file structure, export patterns, error handling approach, and typing patterns must match existing code.
+3. **Reuse existing abstractions.** Check for existing utilities, hooks, types, and components before creating new ones. Duplication is a defect.
+4. **Preserve data contracts.** Database schemas, API response shapes, and type definitions are authoritative. New code conforms to them, not the other way around.
+5. **When patterns conflict,** follow the most recent/dominant pattern and note the inconsistency.

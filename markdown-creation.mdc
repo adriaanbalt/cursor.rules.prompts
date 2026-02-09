@@ -1,7 +1,7 @@
 ---
 description: Standards for creating markdown documentation files with proper date and time handling and template structure. CHECK THIS RULE BEFORE CREATING ANY MARKDOWN FILE.
 globs: "**/*.md"
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Markdown File Creation Standards
