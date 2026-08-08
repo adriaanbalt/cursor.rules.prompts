@@ -31,7 +31,8 @@ cursor .    # Open in Cursor — rules and skills are active immediately
 
 The `.cursor/` directory has symlinks to all rules and skills. Nothing to copy.
 
-If you use MCP (e.g., Linear), copy the example and add your key:
+If you use MCP (Linear, Exa, Apollo, or Instantly), copy the example and
+configure credentials locally:
 ```bash
 cp .cursor/mcp.json.example .cursor/mcp.json
 # Edit .cursor/mcp.json with your API key (gitignored, won't be committed)
@@ -80,6 +81,8 @@ ai.rules.prompts/
 │   ├── 06-qa-report                # QA report formatting
 │   ├── 07-qa-regression            # Regression testing checklist
 │   ├── 08-onboarding-scaffold      # Guided first-contribution workflow
+│   ├── 09-daily-standup            # MCP-first daily activity summary
+│   ├── 26-outbound-sales           # Lead-pipeline approval guardrails
 │   │
 │   │ # Stack example (adapt for your stack)
 │   └── nextjs-supabase/
@@ -103,6 +106,7 @@ ai.rules.prompts/
 ├── skills/                         # ← Copy into .cursor/skills/
 │   ├── sdlc-workflow/              # Full 8-phase AI-native SDLC
 │   ├── qa-session/                 # Full QA testing workflow
+│   ├── outbound-lead-pipeline/      # VA discovery-to-outreach playbook
 │   ├── feature-scaffold/           # Phased feature implementation
 │   ├── deploy-checklist/           # Multi-service deployment
 │   └── rule-authoring/             # How to write effective rules
@@ -209,6 +213,7 @@ cp -r skills/* your-project/.cursor/skills/
 |-------|-------------|-------------------|
 | **sdlc-workflow** | Full 8-phase lifecycle: signal → investigate → plan → execute → own | "Walk me through fixing this bug end-to-end" |
 | **qa-session** | Scope → execute tests → report → update tickets | "Run a QA session on this PR" |
+| **outbound-lead-pipeline** | Exa discovery → Apollo enrichment → CRM approval → cold campaign | "Run the outbound lead pipeline for property managers" |
 | **feature-scaffold** | Phased build with checkpoints at each layer | "Scaffold the new billing feature" |
 | **deploy-checklist** | Multi-service deploy with rollback plan | "Deploy this to production" |
 | **rule-authoring** | Write rules following the methodology | "Create a rule for our API patterns" |
@@ -231,6 +236,15 @@ This repo is built for QA workflows:
 | `rules/08-onboarding-scaffold` | Guided first contribution with validation checkpoints |
 
 Start with: copy the universal rules + the `qa-session` skill into your project.
+
+---
+
+## For Outbound Lead VAs
+
+Configure the Exa, Apollo, and Instantly MCPs from `.cursor/mcp.json.example`, then
+invoke `outbound-lead-pipeline`. The workflow saves researched leads to BoardRecord
+CRM and stops for founder approval before any export, enrollment, or send. See
+[docs/VA-LEAD-PIPELINE.md](docs/VA-LEAD-PIPELINE.md).
 
 ---
 
@@ -285,6 +299,7 @@ See `docs/` for the full operational framework:
 - **[PLATFORM-RUNBOOK.md](docs/PLATFORM-RUNBOOK.md)** — Adding, modifying, and removing rules over time
 - **[SUCCESS-METRICS.md](docs/SUCCESS-METRICS.md)** — Measuring impact (north star: time to first merged PR)
 - **[GOVERNANCE.md](docs/GOVERNANCE.md)** — Security, privacy, MCP access control, agent guardrails
+- **[VA-LEAD-PIPELINE.md](docs/VA-LEAD-PIPELINE.md)** — Safe VA workflow from lead research through approved outreach
 
 ---
 

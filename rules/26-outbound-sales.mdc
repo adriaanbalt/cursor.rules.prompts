@@ -1,0 +1,27 @@
+---
+description: Safe outbound lead workflow for requests such as "start lead gen", "enrich leads", "push to CRM", or "run Instantly". Requires MCP-first research and founder approval before outreach.
+alwaysApply: false
+globs: []
+---
+
+# Outbound Sales Guardrails
+
+When the user starts lead generation, enrichment, CRM intake, or an
+Instantly/Apollo campaign, use the `outbound-lead-pipeline` skill.
+
+1. **MCP first** — Use Exa for discovery, Apollo for enrichment, and
+   Instantly/Apollo for cold campaign operations when those MCPs are available.
+2. **Never invent emails** — Keep only sourced or provider-returned contact data.
+   Record missing data instead of inferring it.
+3. **CRM is canonical** — Submit researched leads to BoardRecord
+   `POST /api/leads/intake`; do not treat a local spreadsheet as the system of record.
+4. **Founder approval is a hard gate** — Intake creates `new` leads. Do not export,
+   enroll, activate, schedule, or send until the founder approves them in Admin CRM.
+5. **Approved export only** — Build campaign audiences only from the CRM export
+   filtered to `outreach_status=approved`.
+6. **Cold stays external** — Use Instantly/Apollo for cold outreach, never
+   BoardRecord SES lifecycle drips.
+7. **No secrets or suppressed contacts** — Keep credentials out of files/chat and
+   honor unsubscribes, bounces, and suppression state.
+
+If an MCP or approval is unavailable, stop at that boundary and report the blocker.
