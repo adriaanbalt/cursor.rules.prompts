@@ -6,6 +6,21 @@
       "env": {
         "LINEAR_API_KEY": "your-api-key-here"
       }
+    },
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "headers": {
+        "x-api-key": "paste-your-exa-api-key-here"
+      }
+    },
+    "apollo": {
+      "url": "https://mcp.apollo.io/mcp"
+    },
+    "instantly": {
+      "url": "https://mcp.instantly.ai/mcp",
+      "headers": {
+        "Authorization": "paste-your-instantly-api-key-here"
+      }
     }
   }
 }
